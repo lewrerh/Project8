@@ -1,4 +1,4 @@
-extends ../layout
+extends layout
 
 block content           
     h1= title
@@ -8,6 +8,5 @@ block content
 
     each book in books  
         h2= book.title
-        include by_line
         p=book.shortDescription()
         a(href = "/books" + book.id) Read More &rarr;
