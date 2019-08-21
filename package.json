@@ -2,7 +2,7 @@
   "name": "project8",
   "version": "1.0.0",
   "description": "SQL Library Manager",
-  "main": "app.js",
+  "main": "nodemon app.js",
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "html2pug": "^4.0.0",
     "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
     "pug": "^2.0.4",
     "sequelize": "^5.15.0",
     "sqlite3": "^4.0.9"
