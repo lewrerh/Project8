@@ -1,37 +1,24 @@
-//const Sequelize = require('sequelize');
-//const Sequelize = require ('sequelize');
-//const sequelize = new Sequelize();
+//var Sequelize = require('sequelize');
+//var Sequelize = require ('sequelize');
+//var sequelize = new Sequelize();
 var express = require('express');
+var port = 3000;
+var app = express();
 var router = express.Router();
-var Book = require("../models").Book; //This lets us use the Books model & all associated ORM methods
+var Book = require("./models/books").Book;   //This lets us use the Books model & all associated ORM methods
+// var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+// var connect = require('connect')
+// var methodOverride = require('method-override')
+ 
 
-var dateFormat = require('dateformat');
 
-/*function publishedAt() {
-    return dateFormat(this.createdAt, "dddd,mmm dS, yyyy, h:MM TT");
-}
-
-function shortDescription() {
-    return this.body.length > 30 ? this.body.substr(0.30) + "..." : this.body;
-}
-
-var books = [
-    {
-    id: 1,
-    title: "My First Book",
-    author: "Andrew Chalkey",
-    body: "This is my book model file"
-    }
-];
-    
-
-function find(id) {
-    var matchedBooks = books.filter(function(book) {return book.id == id; });
-    return matchedBooks[0];
-}*/
+app.set('view engine', 'pug');
 //Get the books listing
 router.get('/', function (request, response, next) {
-    Book.finAll({order: [["createdAt", "DESC"]]}).then(function(books){
+    Book.findAll({order: [["createdAt", "DESC"]]}).then(function(books){
       response.render("books/index", {books: books, title: "My Blog"});
     }).catch(function(err) {
         response.send(500);
@@ -149,6 +136,20 @@ router.delete("/:id/delete", function (request, response, next) {
     response.send(500);
     });
 });
+
+//Handle errors
+app.use(function (err, request, response, next) {
+    response.locals.error = err;
+    response.render('error', { error: err });
+    console.log("Server error: Your requested page does not exist");
+});
+
+//Start server listening on port 3000
+app.listen('3000', () => {
+    console.log('Server started on port 3000');
+});
+
+
 
 module.exports = router;
 

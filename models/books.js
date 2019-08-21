@@ -1,22 +1,13 @@
-//const express = require('express');
-//const router = express.Router();
-//const Books = require("../models").Book;
-
+var express = require('express');
+var router = express.Router();
+// var Books = require("../models").Book;
 
 'use strict';
 var dateFormat = require('dateformat');
 
 module.exports = function(sequelize, DataTypes) {
   var Book = sequelize.define('Book', {
-    title:{
-      
-    type: DataTypes.STRING,
-    validate: {
-      notEmpty: {
-        msg: "Tite is required"
-      }
-    }
-  },
+    title: DataTypes.STRING,
     author: DataTypes.STRING,
     genre: DataTypes.STRING,
     year: DataTypes.INTEGER
@@ -28,15 +19,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     instanceMethods: {
       publishedAt: function() {
-        return dateFormat(this.createdAt, "ddd,mmm dS, yyyy, h:MMTT");
+        return dateFormat(this.createdAt,"dddd,mmm dS, yyyy, h:MM TT");
       },
-      shortDescription: function(){
-        return this.body.length > 30 ? this.body.substr(0, 30) + "..." : this.body;
+       shortDescription: function() {
+          return this.body.length > 30 ? this.body.substr(0.30) + "..." : this.body;
       }
     }
   });
-  Books.associate = function(models) {
-    // associations can be defined here
-  };
-  return Books;
+  return Book;
 };
+  
