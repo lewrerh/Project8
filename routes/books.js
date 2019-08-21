@@ -1,7 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser');
+var sqlite3 = require('sqlite3');
 
-//Get the books listing
+const Book = require('../models').Book;
+
+var router = express.Router();    //Router using express
+router.use(bodyParser.urlencoded({ extended: false }));
+
+
+
+//Get the books listing, show books in decending order
 router.get('/', function (request, response, next) {
     Book.findAll({order: [["createdAt", "DESC"]]}).then(function(books){
       response.render("all_book", {books: books});
