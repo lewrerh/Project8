@@ -1,11 +1,21 @@
 body {
   padding: 10px 50px 50px;
   font: 18px "Garamond", serif;
-  background: rgb(247, 212, 217);
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 10px,
+    rgba(0, 0, 0, 0.3) 10px,
+    rgba(0, 0, 0, 0.3) 20px
+);
+  /*background-image: url("https://tickettoadventures.files.wordpress.com/2018/07/fotor_152786652815417.jpg?w=820");
+  background-size: cover;
+  margin: auto;
+  max-width: 800px*/
   }
   
 a {
-  color: #019875;
+  color: black;
   text-decoration: none;
   font-weight: bold;
   transition: 0.4s;
