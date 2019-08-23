@@ -1,8 +1,9 @@
 body {
   padding: 10px 50px 50px;
   font: 18px "Garamond", serif;
-}
-
+  background: rgb(247, 212, 217);
+  }
+  
 a {
   color: #019875;
   text-decoration: none;
@@ -34,7 +35,7 @@ input[type=submit] {
 }
 
   a.button:hover, input[type=submit]:hover {
-    background-color: #01b189;
+    background-color: #ff9999;
   }
 
 p {

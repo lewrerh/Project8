@@ -1,12 +1,12 @@
 // var express = require('express');
 // var router = express.Router();
-// var Books = require("../models").Book;
+var Books = require("../models").Book; 
 
 'use strict';
 //var dateFormat = require('dateformat');
 
 module.exports = function(sequelize, DataTypes) {
-  var book = sequelize.define('book', {
+  var Book = sequelize.define('Book', {
     title: {
     type: DataTypes.STRING,
     validate: {
@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
   Book.associate = function(models) {
     // associations can be defined here
   };
-  return book;
+  return Book;
 };
   
   /*{
