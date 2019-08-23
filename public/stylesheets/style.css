@@ -6,13 +6,8 @@ body {
     rgba(0, 0, 0, 0.2),
     rgba(0, 0, 0, 0.2) 10px,
     rgba(0, 0, 0, 0.3) 10px,
-    rgba(0, 0, 0, 0.3) 20px
-);
-  /*background-image: url("https://tickettoadventures.files.wordpress.com/2018/07/fotor_152786652815417.jpg?w=820");
-  background-size: cover;
-  margin: auto;
-  max-width: 800px*/
-  }
+    rgba(0, 0, 0, 0.3) 20px);
+}
   
 a {
   color: black;
@@ -27,7 +22,7 @@ a {
 
 a.button, input[type=submit] {
   color: white;
-  background: #019875;
+  background: #17012b;
   font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   padding: 10px 14px 12px;
   font-size: 14px;
@@ -45,7 +40,7 @@ input[type=submit] {
 }
 
   a.button:hover, input[type=submit]:hover {
-    background-color: #ff9999;
+    background-color: #170441;
   }
 
 p {
@@ -105,4 +100,20 @@ input[type=text] {
 
 .error {
   color: rgb(236, 15, 15);
+}
+
+.searchBtn{
+  margin-left: 0px !Important
+}
+
+.width {
+  width: 10% !Important
+}
+
+.tableWidth{
+  width: 54%
+}
+
+.paging {
+ margin-left: 5px
 }

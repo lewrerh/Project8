@@ -1,10 +1,17 @@
 extends layout.pug
 
 block content 
- h1 Rhonda's Very Own Book List
+ h1 Books
  p
   a.button(href='/books/new') Create New Book
- table
+ form(method='post', action='/books/search')
+  input.searchBtn(type='submit', value='Search')
+  input.width#title(name='title', type='text', value='' placeholder='Title')
+  input.width#author(name='author', type='text', value='' placeholder='Author')
+  input.width#genre(name='genre', type='text', value='' placeholder='Genre')
+  input.width#year(name='year', type='text', value='' placeholder='Year')
+
+ table.tableWidth
   thead
     tr
       th Title
@@ -19,5 +26,11 @@ block content
       td #{book.author}
       td #{book.genre}
       td #{book.year}
+ br
+ div
+  -for(let j = 1; j <= totalPgs; j++)
+    a.button.paging(href=`/books?page=${j}`) #{j}
+
+
 
 
