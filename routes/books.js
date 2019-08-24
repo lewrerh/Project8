@@ -207,6 +207,8 @@ router.post("/:id", function (request, response, next) {
         } else {
             response.sendStatus(404);
         }
+    }).then(function (book) {
+        response.redirect("/");
     }).catch(function (err) {
         if (err.name === "SequelizeValidationError") {
             var book = Book.build(request.body);
@@ -220,8 +222,7 @@ router.post("/:id", function (request, response, next) {
         } else {
             throw err;
         }
-    }).then(function (book) {
-        response.redirect("/");
+    
     }).catch(function (err) {
         response.sendStatus(500);
     });
