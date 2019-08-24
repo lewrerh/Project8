@@ -9,7 +9,7 @@ var sqlite3 = require('sqlite3');
 
 const Book = require("../models").Book;
 const Sequelize = require('sequelize');
-const Op = Sequelize.Op;
+const Op = Sequelize.Op;     //Applied for pagination
 
 // Get the books listing, show books in decending order
 router.get('/', function (request, response, next) {
